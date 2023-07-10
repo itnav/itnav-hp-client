@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["./src/**/*", "./src/**/*.astro"],
+  "files": ["astro.config.mjs"],
+  "lib": ["ESNext", "DOM", "DOM.Iterable"],
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "types": [],
+    "paths": {
+      "+/*": ["./src/pages/*"],
+      "@/*": ["./src/*"],
+      "~/*": ["./*"]
+    },
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "importHelpers": false
+  }
+}
