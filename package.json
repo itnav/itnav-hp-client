@@ -1,15 +1,16 @@
 {
-  "name": "",
+  "name": "itnav-hp-client",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "npm run start",
+    "prod": "npm run build && npm run preview",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.6.4"
+    "astro": "^2.8.0"
   }
 }
