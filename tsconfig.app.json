@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "include": ["./src/**/*", "./src/**/*.astro"],
-  "files": ["astro.config.mjs"],
+  "files": ["./.env.d.ts", "astro.config.mjs"],
   "lib": ["ESNext", "DOM", "DOM.Iterable"],
   "compilerOptions": {
     "composite": true,
