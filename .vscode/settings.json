@@ -5,10 +5,16 @@
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+    "source.fixAll.eslint": true
+  },
 
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
   "prettier.documentSelectors": ["**/*.svg", "**/*.astro"],
+
+  "eslint.validate": ["javascript", "typescript", "astro"],
 
   "cSpell.userWords": [],
   "cSpell.words": [
