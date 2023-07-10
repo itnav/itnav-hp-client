@@ -8,5 +8,23 @@
 
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
-  "prettier.documentSelectors": ["**/*.svg", "**/*.astro"]
+  "prettier.documentSelectors": ["**/*.svg", "**/*.astro"],
+
+  "cSpell.userWords": [],
+  "cSpell.words": [
+    "astro",
+    "astrojs",
+    "Codespaces",
+    "itnav",
+    "multipass",
+    "pcss",
+    "Preact",
+    "purgecss",
+    "rushstack",
+    "styl",
+    "stylelint",
+    "stylelintrc",
+    "swup",
+    "tsdoc"
+  ]
 }
