@@ -8,9 +8,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "concurrently": "concurrently --prefix-colors auto",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^2.8.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
   }
 }
