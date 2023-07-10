@@ -38,37 +38,37 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   main {
-    margin: auto;
-    padding: 1.5rem;
     max-width: 60ch;
+    padding: 1.5rem;
+    margin: auto;
   }
   h1 {
+    margin: 0;
     font-size: 3rem;
     font-weight: 800;
-    margin: 0;
   }
   .text-gradient {
     background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
     background-position: 0%;
+    -webkit-background-clip: text;
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
   }
   .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
     padding: 1rem;
+    margin: 1rem 0;
+    line-height: 1.6;
+    background-color: white;
+    border: 1px solid rgba(var(--accent), 25%);
     border-radius: 0.4rem;
   }
   .instructions code {
+    padding: 0.3em 0.45em;
     font-size: 0.875em;
     font-weight: bold;
-    background: rgba(var(--accent), 12%);
     color: rgb(var(--accent));
+    background: rgba(var(--accent), 12%);
     border-radius: 4px;
-    padding: 0.3em 0.45em;
   }
   .instructions strong {
     color: rgb(var(--accent));
