@@ -11,6 +11,9 @@ dependencies:
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
+  vite:
+    specifier: ^4.4.2
+    version: 4.4.2(@types/node@20.4.1)
 
 devDependencies:
   '@rushstack/eslint-patch':

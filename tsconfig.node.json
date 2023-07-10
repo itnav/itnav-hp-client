@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
-  "files": [".prettierrc.cjs"],
+  "files": ["./.eslintrc.cjs", "./.stylelintrc.cjs", "./.prettierrc.cjs"],
   "compilerOptions": {
     "composite": true,
     "noEmit": false,
