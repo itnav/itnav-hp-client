@@ -2,43 +2,35 @@
 import '@/styles/global.css';
 import '@/styles/global.scss';
 
-export interface Props {
-  title: string;
+import type { HTMLAttributes } from 'astro/types';
+import { SEO } from 'astro-seo';
+import type { Props as SEOProps } from 'astro-seo';
+import { APP_ID } from '@/constants/app';
+import style from './Layout.css';
+
+export interface Props extends HTMLAttributes<'main'> {
+  /** @see https://github.com/jonasmerlin/astro-seo#supported-props */
+  seo?: SEOProps;
 }
 
-const { title } = Astro.props;
+const { id: _id, class: _class, seo = {}, ...props } = Astro.props;
+
+const id = _id ? `${APP_ID} ${_id}` : APP_ID;
+const className = _class ? `${style.main} ${_class}` : style.main;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SEO {...seo} />
   </head>
+
   <body>
-    <slot />
+    <main id={id} class={className} {...props}>
+      <slot />
+    </main>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>
