@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@astrojs/solid-js": "^2.2.0",
+    "@vanilla-extract/css": "^1.12.0",
+    "@vanilla-extract/vite-plugin": "^3.8.2",
     "astro": "^2.8.0",
     "astro-compress": "^1.1.49",
     "astro-critters": "^1.1.39",
