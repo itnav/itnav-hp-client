@@ -1,6 +1,9 @@
 /** @see https://github.com/microsoft/rushstack#readme */
 require('@rushstack/eslint-patch/modern-module-resolution');
 
+/** @see https://github.com/vanilla-extract-css/vanilla-extract/blob/master/packages/css */
+require('@vanilla-extract/css');
+
 /** @type {import('eslint/lib/shared/types').ConfigData} */
 module.exports = {
   root: true,
@@ -77,6 +80,31 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['builtin'],
         alphabetize: { order: 'asc' },
         'newlines-between': 'never',
+      },
+    ],
+    'import/no-restricted-paths': [
+      'error',
+      {
+        zones: [
+          {
+            from: '**/styles/*',
+            target: '**/!(*.static).{jsx,tsx}',
+            message:
+              'Importing styles defined with "vanilla-extract" in Framework components is not allowed. This could lead to the definition of redundant objects and potential performance degradation.',
+          },
+          {
+            from: '**/*.css.{ts,cts,mts}',
+            target: '**/!(*.static).{jsx,tsx}',
+            message:
+              'Importing styles defined with "vanilla-extract" in Framework components is not allowed. This could lead to the definition of redundant objects and potential performance degradation.',
+          },
+          {
+            from: '**/*.module.{css,scss,sass,less,styl,stylus,pcss,sss}',
+            target: '**/!(*.static).{jsx,tsx}',
+            message:
+              'Importing styles defined with "css-modules" in Framework components is not allowed. This could lead to the definition of redundant objects and potential performance degradation.',
+          },
+        ],
       },
     ],
 
@@ -188,6 +216,26 @@ module.exports = {
       rules: {
         /** @docs https://github.com/ota-meshi/eslint-plugin-astro#a11y-extension-rules */
         'jsx-a11y/control-has-associated-label': 'error',
+      },
+    },
+
+    {
+      files: ['**/*.css.{ts,cts,mts}'],
+      rules: {
+        /** @see https://github.com/hugoattal/eslint-plugin-sort-keys-custom-order */
+        'sort-keys-custom-order/object-keys': [
+          'warn',
+          {
+            /** @see https://github.com/stormwarning/stylelint-config-recess-order/blob/main/groups.js */
+            orderedKeys: require('stylelint-config-recess-order/groups')
+              .flatMap(({ properties }) =>
+                properties.map((property) =>
+                  property.replace(/-./g, (string) => string[1].toUpperCase()),
+                ),
+              )
+              .concat(global.specialKeys || []),
+          },
+        ],
       },
     },
 
