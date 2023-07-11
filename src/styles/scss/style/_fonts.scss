@@ -1,0 +1,13 @@
+@use '../core' as *;
+
+// japanese font
+@include murecho-faces();
+:root {
+  font-family: $murecho-family, sans-serif;
+}
+
+// mono font
+@include roboto-mono-faces();
+code {
+  font-family: $roboto-mono-family, monospace;
+}

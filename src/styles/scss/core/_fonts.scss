@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use 'sass:string';
+@use '@fontsource-variable/murecho/scss/metadata' as murecho;
+@use '@fontsource-variable/murecho/scss/mixins' as murecho-mixins;
+@use '@fontsource-variable/roboto-mono/scss/metadata' as roboto-mono;
+@use '@fontsource-variable/roboto-mono/scss/mixins' as roboto-mono-mixins;
+
+@forward '@fontsource-variable/murecho/scss/metadata' as murecho-*;
+@forward '@fontsource-variable/murecho/scss/mixins' as murecho-* show generator;
+@forward '@fontsource-variable/roboto-mono/scss/metadata' as roboto-mono-*;
+@forward '@fontsource-variable/roboto-mono/scss/mixins' as roboto-mono-* show generator;
+
+@mixin generator(
+  $props,
+  $family: null,
+  $style: null,
+  $weight: null,
+  $stretch: null,
+  $display: null,
+  $unicode-range: null,
+  $src: null
+) {
+  @if not $src {
+    // `url("~@fontsource/...");` の ~ を削除する
+    $sliced-src: string.slice(#{map.get($props, src)}, 7);
+    $src: string.unquote('url("' + $sliced-src);
+  }
+
+  $style: $style or map.get($props, font-style);
+  $weight: $weight or map.get($props, font-weight);
+  $stretch: $stretch or map.get($props, font-stretch);
+  $display: $display or map.get($props, font-display);
+  $unicode-range: $unicode-range or map.get($props, unicode-range);
+
+  /* #{map.get($props, variant)} */
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    font-stretch: $stretch;
+    src: $src;
+    font-display: $display;
+    unicode-range: $unicode-range;
+  }
+}
+
+@mixin murecho-faces() {
+  @include murecho-mixins.generator() using ($props) {
+    @include generator($props, murecho.$family, block);
+  }
+}
+
+@mixin roboto-mono-faces() {
+  @include roboto-mono-mixins.generator() using ($props) {
+    @include generator($props, roboto-mono.$family, block);
+  }
+}
