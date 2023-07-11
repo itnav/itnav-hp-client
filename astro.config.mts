@@ -1,3 +1,4 @@
+import image from '@astrojs/image';
 import solidJs from '@astrojs/solid-js';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
@@ -13,6 +14,12 @@ export default (() => {
        * @docs https://docs.astro.build/ja/guides/integrations-guide/solid-js
        */
       solidJs(),
+
+      /**
+       * @npm https://www.npmjs.com/package/@astrojs/image
+       * @docs https://docs.astro.build/ja/guides/integrations-guide/image
+       */
+      image({ serviceEntryPoint: '@astrojs/image/sharp' }),
 
       /**
        * @npm https://www.npmjs.com/package/astro-purgecss

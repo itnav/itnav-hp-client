@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@astrojs/image':
+    specifier: ^0.17.2
+    version: 0.17.2(astro@2.8.0)(sharp@0.32.1)
   '@astrojs/solid-js':
     specifier: ^2.2.0
     version: 2.2.0(@babel/core@7.22.8)(solid-js@1.7.7)(vite@4.4.2)
@@ -16,7 +19,7 @@ dependencies:
     version: 3.8.2(@types/node@20.4.1)(sass@1.63.6)(vite@4.4.2)
   astro:
     specifier: ^2.8.0
-    version: 2.8.0(@types/node@20.4.1)(sass@1.63.6)
+    version: 2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1)
   astro-compress:
     specifier: ^1.1.49
     version: 1.1.49
@@ -29,6 +32,9 @@ dependencies:
   sass:
     specifier: ^1.63.6
     version: 1.63.6
+  sharp:
+    specifier: ^0.32.1
+    version: 0.32.1
   solid-js:
     specifier: ^1.7.7
     version: 1.7.7
@@ -108,6 +114,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /@altano/tiny-async-pool@1.0.2:
+    resolution: {integrity: sha512-qQzaI0TBUPdpjZ3qo5b2ziQY9MSNpbziH2ZrE5lvtUZL+kn9GwVuVJwoOubaoNkeDB+rqEefnpu1k+oMpOCYiw==}
+    dev: false
+
   /@ampproject/remapping@2.2.1:
     resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==}
     engines: {node: '>=6.0.0'}
@@ -118,6 +128,25 @@ packages:
 
   /@astrojs/compiler@1.5.5:
     resolution: {integrity: sha512-8LEj9nUr5+92ms8/ZUyajcLYqurhXHTNMERctsHZ1JyRrnjseheUHCM+MC34bMP0uOou2JXJFWVJudDTTe4S/A==}
+
+  /@astrojs/image@0.17.2(astro@2.8.0)(sharp@0.32.1):
+    resolution: {integrity: sha512-hw5vGBlyPwyt9E4ux7eej7dJrcSlTAaMYKYd8OWIJVsFSbV75sXNi+5lwbpNjDLGVIS6Baa4nzayjN5Gxo73MQ==}
+    peerDependencies:
+      astro: ^2.7.3
+      sharp: '>=0.31.0'
+    peerDependenciesMeta:
+      sharp:
+        optional: true
+    dependencies:
+      '@altano/tiny-async-pool': 1.0.2
+      astro: 2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1)
+      http-cache-semantics: 4.1.1
+      image-size: 1.0.2
+      kleur: 4.1.5
+      magic-string: 0.27.0
+      mime: 3.0.0
+      sharp: 0.32.1
+    dev: false
 
   /@astrojs/internal-helpers@0.1.1:
     resolution: {integrity: sha512-+LySbvFbjv2nO2m/e78suleQOGEru4Cnx73VsZbrQgB2u7A4ddsQg3P2T0zC0e10jgcT+c6nNlKeLpa6nRhQIg==}
@@ -148,7 +177,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.8.0(@types/node@20.4.1)(sass@1.63.6)
+      astro: 2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1843,11 +1872,11 @@ packages:
     peerDependencies:
       astro: ^2.0.0
     dependencies:
-      astro: 2.8.0(@types/node@20.4.1)(sass@1.63.6)
+      astro: 2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1)
       purgecss: 5.0.0
     dev: false
 
-  /astro@2.8.0(@types/node@20.4.1)(sass@1.63.6):
+  /astro@2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1):
     resolution: {integrity: sha512-bqdhE9039dzi0mqaWGO9rMk5HKxTn5TckxFmRPUdsV1qmbpghXtwuERHblfJu5etQofV6WVEyTrouG+BLRkqfA==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -1901,6 +1930,7 @@ packages:
       rehype: 12.0.1
       semver: 7.5.4
       server-destroy: 1.0.1
+      sharp: 0.32.1
       shiki: 0.14.3
       string-width: 5.1.2
       strip-ansi: 7.1.0
@@ -3679,6 +3709,10 @@ packages:
       domutils: 3.1.0
       entities: 4.5.0
 
+  /http-cache-semantics@4.1.1:
+    resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==}
+    dev: false
+
   /human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
@@ -3700,6 +3734,14 @@ packages:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
     dev: true
+
+  /image-size@1.0.2:
+    resolution: {integrity: sha512-xfOoWjceHntRb3qFCrh5ZFORYH8XCdYpASltMhZ/Q0KZiOwjdE/Yl2QCiWdwD+lygV5bMCvauzgu5PxBX/Yerg==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      queue: 6.0.2
+    dev: false
 
   /immutable@4.3.0:
     resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
@@ -5174,6 +5216,12 @@ packages:
 
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  /queue@6.0.2:
+    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
+    dependencies:
+      inherits: 2.0.4
+    dev: false
 
   /quick-lru@5.1.1:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}

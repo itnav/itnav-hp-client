@@ -19,6 +19,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/image": "^0.17.2",
     "@astrojs/solid-js": "^2.2.0",
     "@vanilla-extract/css": "^1.12.0",
     "@vanilla-extract/vite-plugin": "^3.8.2",
@@ -27,6 +28,7 @@
     "astro-critters": "^1.1.39",
     "astro-purgecss": "^2.2.0",
     "sass": "^1.63.6",
+    "sharp": "^0.32.1",
     "solid-js": "^1.7.7",
     "typescript": "^5.1.6",
     "vite": "^4.4.2"
