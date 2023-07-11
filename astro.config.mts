@@ -1,4 +1,5 @@
 import image from '@astrojs/image';
+import sitemap from '@astrojs/sitemap';
 import solidJs from '@astrojs/solid-js';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
@@ -20,6 +21,12 @@ export default (() => {
        * @docs https://docs.astro.build/ja/guides/integrations-guide/image
        */
       image({ serviceEntryPoint: '@astrojs/image/sharp' }),
+
+      /**
+       * @npm https://www.npmjs.com/package/@astrojs/sitemap
+       * @docs https://docs.astro.build/ja/guides/integrations-guide/sitemap
+       */
+      sitemap(),
 
       /**
        * @npm https://www.npmjs.com/package/astro-purgecss
@@ -62,6 +69,8 @@ export default (() => {
         logger: 1,
       }),
     ],
+
+    site: $env.URL,
 
     output: 'static',
 
