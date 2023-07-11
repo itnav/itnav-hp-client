@@ -15,7 +15,13 @@
   "prettier.useTabs": false,
   "prettier.documentSelectors": ["**/*.svg", "**/*.astro"],
 
-  "eslint.validate": ["javascript", "typescript", "astro"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
 
   "stylelint.validate": ["css", "svg", "astro"],
 
