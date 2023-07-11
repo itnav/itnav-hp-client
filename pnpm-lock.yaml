@@ -14,6 +14,12 @@ dependencies:
   '@astrojs/solid-js':
     specifier: ^2.2.0
     version: 2.2.0(@babel/core@7.22.8)(solid-js@1.7.7)(vite@4.4.2)
+  '@fontsource-variable/murecho':
+    specifier: ^5.0.5
+    version: 5.0.5
+  '@fontsource-variable/roboto-mono':
+    specifier: ^5.0.6
+    version: 5.0.6
   '@vanilla-extract/css':
     specifier: ^1.12.0
     version: 1.12.0
@@ -1182,6 +1188,14 @@ packages:
     resolution: {integrity: sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource-variable/murecho@5.0.5:
+    resolution: {integrity: sha512-AX/PNEMzPQZTQIqhCL9dU2ScjkVpodplUmD3fVtkJaHQQrZbh3WJaTPdjrWwumrTuhxHRFazMm2MfbDCj9cD1Q==}
+    dev: false
+
+  /@fontsource-variable/roboto-mono@5.0.6:
+    resolution: {integrity: sha512-n2TfINPd+mycq6husov36SWO6v1/dKDhxNf6LtB7mKrCtBjWyTAJiC1qjiRmYT4I69/cNQZhlu3Jd+f+JQIR6g==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
