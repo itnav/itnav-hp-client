@@ -1,6 +1,56 @@
 import { defineConfig } from 'astro/config';
+import compress from 'astro-compress';
+import critters from 'astro-critters';
+import purgecss from 'astro-purgecss';
 
 /** @see https://astro.build/config */
 export default (() => {
-  return defineConfig({});
+  return defineConfig({
+    integrations: [
+      /**
+       * @npm https://www.npmjs.com/package/astro-purgecss
+       * @docs https://github.com/codiume/orbit/tree/main/packages/astro-purgecss#readme
+       */
+      purgecss(),
+
+      /**
+       * @npm https://www.npmjs.com/package/astro-critters
+       * @docs https://github.com/astro-community/astro-critters#readme
+       * @deps https://github.com/astro-community/astro-critters/blob/main/package.json
+       */
+      critters({
+        critters: {
+          pruneSource: true,
+          inlineFonts: false,
+        },
+        logger: 2,
+      }),
+
+      /**
+       * @npm https://www.npmjs.com/package/astro-compress
+       * @docs https://github.com/astro-community/astro-compress#readme
+       * @deps https://github.com/astro-community/astro-compress/blob/main/package.json
+       */
+      compress({
+        html: {
+          removeAttributeQuotes: false,
+        },
+        css: true,
+        js: {
+          compress: {
+            passes: 2,
+          },
+        },
+        img: false,
+        svg: {
+          multipass: true,
+        },
+        logger: 1,
+      }),
+    ],
+
+    output: 'static',
+
+    compressHTML: true,
+  });
 })();
