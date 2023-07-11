@@ -1,5 +1,3 @@
-/// <reference types="astro/client" />
-
 declare global {
   interface $InternalEnv {
     NODE_ENV: 'development' | 'production';

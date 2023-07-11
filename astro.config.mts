@@ -1,3 +1,4 @@
+import solidJs from '@astrojs/solid-js';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import critters from 'astro-critters';
@@ -7,6 +8,12 @@ import purgecss from 'astro-purgecss';
 export default (() => {
   return defineConfig({
     integrations: [
+      /**
+       * @npm https://www.npmjs.com/package/@astrojs/solid-js
+       * @docs https://docs.astro.build/ja/guides/integrations-guide/solid-js
+       */
+      solidJs(),
+
       /**
        * @npm https://www.npmjs.com/package/astro-purgecss
        * @docs https://github.com/codiume/orbit/tree/main/packages/astro-purgecss#readme
