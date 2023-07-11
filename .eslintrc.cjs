@@ -5,6 +5,10 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 module.exports = {
   root: true,
 
+  globals: {
+    $env: 'readonly',
+  },
+
   parserOptions: {
     ecmaVersion: 'latest',
     warnOnUnsupportedTypeScriptVersion: false,
