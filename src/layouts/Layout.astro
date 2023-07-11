@@ -3,13 +3,14 @@ import '@/styles/global.css';
 import '@/styles/global.scss';
 
 import type { HTMLAttributes } from 'astro/types';
-import * as SEO from 'astro-seo';
+import { SEO } from 'astro-seo';
+import type { Props as SEOProps } from 'astro-seo';
 import { APP_ID } from '@/constants/app';
 import style from './Layout.css';
 
 export interface Props extends HTMLAttributes<'main'> {
   /** @see https://github.com/jonasmerlin/astro-seo#supported-props */
-  seo?: SEO.Props;
+  seo?: SEOProps;
 }
 
 const { id: _id, class: _class, seo = {}, ...props } = Astro.props;
@@ -24,7 +25,7 @@ const className = _class ? `${style.main} ${_class}` : style.main;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <SEO.SEO {...seo} />
+    <SEO {...seo} />
   </head>
 
   <body>
