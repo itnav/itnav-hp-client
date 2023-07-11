@@ -23,7 +23,7 @@
     "astro"
   ],
 
-  "stylelint.validate": ["css", "svg", "astro"],
+  "stylelint.validate": ["css", "scss", "sass", "svg", "astro"],
 
   "cSpell.userWords": [],
   "cSpell.words": [

@@ -13,7 +13,7 @@
     "check:astro": "astro check",
     "check:type": "tsc --noEmit --skipLibCheck",
     "check:eslint": "eslint \"**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,astro}\" --max-warnings 0",
-    "check:stylelint": "stylelint \"**/*.{css,svg,astro}\" --max-warnings 0",
+    "check:stylelint": "stylelint \"**/*.{css,scss,sass,svg,astro}\" --max-warnings 0",
     "check:prettier": "prettier . --plugin-search-dir . --check",
     "concurrently": "concurrently --prefix-colors auto",
     "astro": "astro"

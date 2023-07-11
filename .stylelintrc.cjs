@@ -9,6 +9,12 @@ module.exports = {
 
   extends: [
     /**
+     * @npm https://www.npmjs.com/package/stylelint-config-recommended-scss
+     * @config https://github.com/stylelint-scss/stylelint-config-recommended-scss/blob/master/index.js
+     */
+    'stylelint-config-recommended-scss',
+
+    /**
      * @npm https://www.npmjs.com/package/stylelint-config-recess-order
      * @config https://github.com/stormwarning/stylelint-config-recess-order/blob/main/index.js
      */
@@ -27,5 +33,8 @@ module.exports = {
 
     /** @docs https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties#usage */
     'plugin/declaration-block-no-ignored-properties': true,
+
+    /** @docs https://github.com/stylelint-scss/stylelint-scss#list-of-rules */
+    'scss/selector-no-union-class-name': true,
   },
 };
