@@ -38,6 +38,9 @@ dependencies:
   astro-purgecss:
     specifier: ^2.2.0
     version: 2.2.0(astro@2.8.0)
+  astro-seo:
+    specifier: ^0.7.5
+    version: 0.7.5
   sass:
     specifier: ^1.63.6
     version: 1.63.6
@@ -1912,6 +1915,10 @@ packages:
     dependencies:
       astro: 2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1)
       purgecss: 5.0.0
+    dev: false
+
+  /astro-seo@0.7.5:
+    resolution: {integrity: sha512-bo5PiB4Y30PP9QS6OnYcVOr1fKDE52mvJys/3HgeiM2h+/hS7jESUHZMx6VX7yRid1yMGHsp2OyVTA9DrdPyPg==}
     dev: false
 
   /astro@2.8.0(@types/node@20.4.1)(sass@1.63.6)(sharp@0.32.1):
