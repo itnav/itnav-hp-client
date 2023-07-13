@@ -24,6 +24,8 @@
     "@astrojs/solid-js": "^2.2.0",
     "@fontsource-variable/murecho": "^5.0.5",
     "@fontsource-variable/roboto-mono": "^5.0.6",
+    "@swup/plugin": "^2.0.3",
+    "@swup/preload-plugin": "^2.3.0",
     "@vanilla-extract/css": "^1.12.0",
     "@vanilla-extract/vite-plugin": "^3.8.2",
     "astro": "^2.8.0",
@@ -34,6 +36,7 @@
     "sass": "^1.63.6",
     "sharp": "^0.32.1",
     "solid-js": "^1.7.7",
+    "swup": "^3.1.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.2"
   },

@@ -5,7 +5,9 @@ import '@/styles/global.scss';
 import type { HTMLAttributes } from 'astro/types';
 import { SEO } from 'astro-seo';
 import type { Props as SEOProps } from 'astro-seo';
+import Anchor from '@/components/Anchor.static';
 import { APP_ID } from '@/constants/app';
+import routes from '@/routes';
 import style from './Layout.css';
 
 export interface Props extends HTMLAttributes<'main'> {
@@ -26,9 +28,13 @@ const className = _class ? `${style.main} ${_class}` : style.main;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO {...seo} />
+    <script src="@/scripts/history"></script>
+    <script src="@/scripts/swup"></script>
   </head>
 
   <body>
+    <Anchor {...routes.top} />
+
     <main id={id} class={className} {...props}>
       <slot />
     </main>
