@@ -13,6 +13,12 @@ export default css.instantiate(
         minHeight: ['100vh', '100svh'],
         opacity: 1,
         transition: `opacity ${styles.transitionDuration.constant.medium1} ${styles.transitionEasing.constant.standardAccelerate}`,
+
+        selectors: {
+          [styles.swup.selector.animating]: {
+            opacity: 0,
+          },
+        },
       },
     ]);
   },
