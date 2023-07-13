@@ -140,6 +140,7 @@ module.exports = {
       rules: {
         /** @docs https://typescript-eslint.io/rules */
         '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-empty-interface': 'off',
@@ -155,6 +156,15 @@ module.exports = {
 
         /** @docs https://github.com/import-js/eslint-plugin-import#rules */
         'import/consistent-type-specifier-style': ['warn', 'prefer-top-level'],
+      },
+    },
+
+    {
+      files: ['**/*.d.{ts,cts,mts}'],
+
+      rules: {
+        /** @docs https://eslint.org/docs/latest/rules */
+        'no-var': 'off',
       },
     },
 
@@ -236,15 +246,6 @@ module.exports = {
               .concat(global.specialKeys || []),
           },
         ],
-      },
-    },
-
-    {
-      files: ['**/scripts/**/*'],
-
-      rules: {
-        /** @docs https://eslint.org/docs/latest/rules */
-        'no-var': 'off',
       },
     },
 
