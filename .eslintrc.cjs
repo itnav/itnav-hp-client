@@ -87,6 +87,12 @@ module.exports = {
       {
         zones: [
           {
+            from: '**/*.static.{jsx,tsx}',
+            target: '**/!(*.static).{jsx,tsx}',
+            message:
+              'Importing Static framework components in Dynamic framework components is not allowed. This could potentially lead to the execution of unnecessary JavaScript.',
+          },
+          {
             from: '**/styles/*',
             target: '**/!(*.static).{jsx,tsx}',
             message:
