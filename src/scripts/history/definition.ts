@@ -22,7 +22,7 @@ historyProto.listen = function (type, listener) {
   return () => this.removeEventListener(type, listener);
 };
 
-const dispatchEvent = (historyProto.dispatchEvent = function (type, disc) {
+historyProto.dispatchEvent = function (type, disc) {
   const storage = this.listenerStorage;
   if (!storage) return;
 
@@ -31,11 +31,9 @@ const dispatchEvent = (historyProto.dispatchEvent = function (type, disc) {
 
   const event = new HistoryChangeEvent(type, disc);
   listeners.forEach((listener) => listener(event));
-});
+};
 
-const dispatchEventOnChange = (historyProto.dispatchEventOnChange = function (
-  disc = {},
-) {
+historyProto.dispatchEventOnChange = function (disc = {}) {
   this.dispatchEvent('locationChange', disc);
 
   const oldLocation = disc.oldLocation || ({} as Partial<Location>);
@@ -48,7 +46,7 @@ const dispatchEventOnChange = (historyProto.dispatchEventOnChange = function (
   if (oldLocation.search !== newLocation.search) {
     this.dispatchEvent('searchChange', disc);
   }
-});
+};
 
 const history = window.history;
 
@@ -64,22 +62,22 @@ const originalPushState = history.pushState.bind(history);
 history.pushState = function (state, title, url) {
   originalPushState(state, title, url);
   const disc = updateDisc(state);
-  dispatchEvent('pushState', disc);
-  dispatchEventOnChange(disc);
+  history.dispatchEvent('pushState', disc);
+  history.dispatchEventOnChange(disc);
 };
 
 const originalReplaceState = history.replaceState.bind(history);
 history.replaceState = function (state, title, url) {
   originalReplaceState(state, title, url);
   const disc = updateDisc(state);
-  dispatchEvent('replaceState', disc);
-  dispatchEventOnChange(disc);
+  history.dispatchEvent('replaceState', disc);
+  history.dispatchEventOnChange(disc);
 };
 
 addEventListener('popstate', (event) => {
   const disc = updateDisc(event.state);
-  dispatchEvent('popState', disc);
-  dispatchEventOnChange(disc);
+  history.dispatchEvent('popState', disc);
+  history.dispatchEventOnChange(disc);
 });
 
 export {};

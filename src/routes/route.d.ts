@@ -1,5 +1,5 @@
 export interface StaticRoute {
-  type: 'internal' | 'external';
+  variant: 'internal' | 'external';
   href: string;
   label: string;
   ariaLabel: string;

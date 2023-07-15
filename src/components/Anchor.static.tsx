@@ -11,9 +11,9 @@ export interface AnchorProps
   historyAction?: HistoryAction;
 }
 export default function Anchor(props: AnchorProps) {
-  const [{ type, label, ariaLabel, historyAction, children }, attributes] =
+  const [{ variant, label, ariaLabel, historyAction, children }, attributes] =
     splitProps(props, [
-      'type',
+      'variant',
       'label',
       'ariaLabel',
       'historyAction',
@@ -23,8 +23,8 @@ export default function Anchor(props: AnchorProps) {
   return (
     <a
       {...attributes}
-      rel={type === 'external' ? 'noopener noreferrer' : void 0}
-      target={type === 'external' ? '_blank' : void 0}
+      rel={variant === 'external' ? 'noopener noreferrer' : void 0}
+      target={variant === 'external' ? '_blank' : void 0}
       data-swup-history={historyAction}
       aria-label={ariaLabel}
     >
