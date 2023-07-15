@@ -1,17 +1,23 @@
 import { globalStyle } from '@vanilla-extract/css';
 import style from './typescript/style';
 
-/** @see https://tailwindcss.com/docs/preflight */
-
 globalStyle(':root', {
+  fontSize: '14px',
   fontWeight: 500,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   lineHeight: 1.6,
-  color: style.theming.constant.onBackground,
+  color: style.theme.constant.onBackground,
   tabSize: 4,
-  colorScheme: style.theming.constant.schema,
-  backgroundColor: style.theming.constant.background,
+  colorScheme: style.theme.constant.schema,
+  backgroundColor: style.theme.constant.background,
+
+  '@media': {
+    [style.mediaQuery.selector.pc]: {
+      fontSize: '18px',
+    },
+  },
+
   fontSynthesis: 'none',
   textSizeAdjust: '100%',
   WebkitTapHighlightColor: 'transparent',
