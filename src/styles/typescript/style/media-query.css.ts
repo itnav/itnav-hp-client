@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { css } from '../core';
 import type { Style } from '../core';
 
-const constant = css.instantiate(
+const _constant = css.instantiate(
   class {
     readonly breakpoint = 1024;
 
@@ -11,18 +11,18 @@ const constant = css.instantiate(
   },
 );
 
-const selector = css.instantiate(
+const _selector = css.instantiate(
   class {
-    readonly pc = `(min-width: ${constant.pc}px)`;
-    readonly mp = `(max-width: ${constant.mp}px)`;
+    readonly pc = `(min-width: ${_constant.pc}px)`;
+    readonly mp = `(max-width: ${_constant.mp}px)`;
   },
 );
 
-const source = css.instantiate(
+const _class = css.instantiate(
   class {
     isMpOnly = style({
       '@media': {
-        [selector.pc]: {
+        [_selector.pc]: {
           display: 'none',
         },
       },
@@ -30,7 +30,7 @@ const source = css.instantiate(
 
     isPcOnly = style({
       '@media': {
-        [selector.mp]: {
+        [_selector.mp]: {
           display: 'none',
         },
       },
@@ -39,7 +39,7 @@ const source = css.instantiate(
 );
 
 export default (<const>{
-  class: source,
-  constant,
-  selector,
+  class: _class,
+  constant: _constant,
+  selector: _selector,
 }) satisfies Style;

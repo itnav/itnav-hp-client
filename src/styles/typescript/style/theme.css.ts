@@ -1,8 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { css } from '../core';
 import type { Style } from '../core';
-import transitionDurationCss from './transition-duration.css';
-import transitionEasingCss from './transition-easing.css';
+import animations from './animations';
 
 /** @see https://m3.material.io/theme-builder#/custom */
 const _constant = css.instantiate(
@@ -55,7 +54,7 @@ const _constant = css.instantiate(
 const _class = css.instantiate(
   class {
     primaryTextColorTransitionOnHover = style({
-      transition: `color ${transitionEasingCss.constant.standard} ${transitionDurationCss.constant.medium2}`,
+      transition: `color ${animations.easing.constant.standard} ${animations.duration.constant.medium2}`,
 
       ':hover': {
         color: _constant.primary,
