@@ -4,7 +4,7 @@ import palette from './palette.css';
 import shape from './shape.css';
 import states from './states.css';
 import swup from './swup.css';
-import theming from './theming.css';
+import theme from './theme.css';
 import transitionDuration from './transition-duration.css';
 import transitionEasing from './transition-easing.css';
 import utils from './utils.css';
@@ -16,7 +16,7 @@ export default <const>{
   shape,
   states,
   swup,
-  theming,
+  theme,
   transitionDuration,
   transitionEasing,
   utils,
