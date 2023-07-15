@@ -1,8 +1,8 @@
-import { css } from '../core';
-import type { Style } from '../core';
+import { css } from '../../core';
+import type { Style } from '../../core';
 
 /** @see https://m3.material.io/styles/motion/easing-and-duration/tokens-specs */
-const constant = css.instantiate(
+const _constant = css.instantiate(
   class {
     readonly linear = 'cubic-bezier(0, 0, 1, 1)';
 
@@ -21,5 +21,5 @@ const constant = css.instantiate(
 );
 
 export default (<const>{
-  constant,
+  constant: _constant,
 }) satisfies Style;
