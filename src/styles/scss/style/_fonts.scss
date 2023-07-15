@@ -2,12 +2,14 @@
 
 // japanese font
 @include murecho-faces();
-:root {
+:root,
+.murecho-font-family {
   font-family: $murecho-family, sans-serif;
 }
 
 // mono font
 @include roboto-mono-faces();
-code {
+code,
+.roboto-mono-font-family {
   font-family: $roboto-mono-family, monospace;
 }
