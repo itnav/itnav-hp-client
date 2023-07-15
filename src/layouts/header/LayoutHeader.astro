@@ -1,0 +1,37 @@
+---
+import FacebookLogoSvg from '@/assets/svg/FacebookLogoSvg.static';
+import ItnavLogoSvg from '@/assets/svg/ItnavLogoSvg.static';
+import TwitterLogoSvg from '@/assets/svg/TwitterLogoSvg.static';
+import Anchor from '@/components/Anchor.static';
+import routes from '@/routes';
+import css from './LayoutHeader.css';
+import LayoutHeaderDrawerToggler from './LayoutHeaderDrawerToggler';
+---
+
+<header class={css.header}>
+  <div class={css.view}>
+    <a class={css.itnavLogoAnchor} href={routes.top.href}>
+      <ItnavLogoSvg class={css.itnavLogo} aria-label="イトナブ" />
+    </a>
+
+    <div class={css.rightActions}>
+      <LayoutHeaderDrawerToggler
+        class={css.menuIcon}
+        classWhenOpen={css.menuIconWhenOpen}
+        client:idle
+      >
+        {[...Array(5)].map(() => <div class={css.menuIconLine} />)}
+      </LayoutHeaderDrawerToggler>
+    </div>
+  </div>
+
+  <nav class={css.rightNav}>
+    <Anchor class={css.externalLink} {...routes.facebook}>
+      <FacebookLogoSvg class={css.externalLinkFacebookIcon} />
+    </Anchor>
+
+    <Anchor class={css.externalLink} {...routes.twitter}>
+      <TwitterLogoSvg class={css.externalLinkTwitterIcon} />
+    </Anchor>
+  </nav>
+</header>

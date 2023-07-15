@@ -5,10 +5,10 @@ import '@/styles/global.scss';
 import type { HTMLAttributes } from 'astro/types';
 import { SEO } from 'astro-seo';
 import type { Props as SEOProps } from 'astro-seo';
-import Anchor from '@/components/Anchor.static';
 import { APP_ID } from '@/constants/app';
-import routes from '@/routes';
-import style from './Layout.css';
+import css from './Layout.css';
+import LayoutDrawer from './drawer/LayoutDrawer.astro';
+import LayoutHeader from './header/LayoutHeader.astro';
 
 export interface Props extends HTMLAttributes<'main'> {
   /** @see https://github.com/jonasmerlin/astro-seo#supported-props */
@@ -18,7 +18,10 @@ export interface Props extends HTMLAttributes<'main'> {
 const { id: _id, class: _class, seo = {}, ...props } = Astro.props;
 
 const id = _id ? `${APP_ID} ${_id}` : APP_ID;
-const className = _class ? `${style.main} ${_class}` : style.main;
+const className = _class ? `${css.main} ${_class}` : css.main;
+
+seo.titleDefault ||= '株式会社イトナブ';
+seo.titleTemplate ||= '%s | イトナブ';
 ---
 
 <!DOCTYPE html>
@@ -33,10 +36,12 @@ const className = _class ? `${style.main} ${_class}` : style.main;
   </head>
 
   <body>
-    <Anchor {...routes.top} />
+    <LayoutHeader />
 
     <main id={id} class={className} {...props}>
       <slot />
     </main>
+
+    <LayoutDrawer />
   </body>
 </html>

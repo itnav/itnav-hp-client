@@ -1,0 +1,39 @@
+---
+import Anchor from '@/components/Anchor.static';
+import OutlinedAnchor from '@/components/OutlinedAnchor.static';
+import routes from '@/routes';
+import css from './LayoutDrawer.css';
+import LayoutDrawerContainer from './fragments/LayoutDrawerContainer';
+
+const LEFT_ROUTES = [routes.recruit, routes.contact] as const;
+
+const RIGHT_ROUTES = [
+  routes.top,
+  routes.about,
+  routes.services,
+  routes.members,
+  routes.blogs,
+] as const;
+---
+
+<LayoutDrawerContainer
+  class={css.drawer}
+  classWhenOpen={css.drawerWhenOpen}
+  client:idle
+>
+  <nav class={css.nav}>
+    <div class={css.leftLinks}>
+      {LEFT_ROUTES.map((route) => <OutlinedAnchor {...route} />)}
+    </div>
+
+    <div class={css.rightLinks}>
+      {
+        RIGHT_ROUTES.map((route) => (
+          <Anchor class={css.rightLink} historyAction="replace" {...route} />
+        ))
+      }
+    </div>
+  </nav>
+
+  <Anchor class={css.bottomLink} {...routes.privacy} />
+</LayoutDrawerContainer>
