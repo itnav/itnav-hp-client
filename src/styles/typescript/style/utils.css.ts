@@ -3,7 +3,7 @@ import type { StyleRule } from '@vanilla-extract/css';
 import { css } from '../core';
 import type { Style } from '../core';
 
-const mixin = css.instantiate(
+const _mixin = css.instantiate(
   class {
     textShadow(fontSize: string, color: string): StyleRule {
       return {
@@ -18,7 +18,7 @@ const mixin = css.instantiate(
   },
 );
 
-const source = css.instantiate(
+const _class = css.instantiate(
   class {
     disabledScrollbar = style({
       '::-webkit-scrollbar': {
@@ -31,6 +31,6 @@ const source = css.instantiate(
 );
 
 export default (<const>{
-  class: source,
-  mixin,
+  class: _class,
+  mixin: _mixin,
 }) satisfies Style;

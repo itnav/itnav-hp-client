@@ -3,8 +3,8 @@ import type { Style } from '../core';
 
 const _constant = css.instantiate(
   class {
-    readonly facebook = '#3b5998';
-    readonly twitter = '#1da1f2';
+    readonly murecho = 'murecho-font-family';
+    readonly robotoMono = 'roboto-mono-font-family';
   },
 );
 

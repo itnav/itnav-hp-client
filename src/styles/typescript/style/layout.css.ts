@@ -1,9 +1,9 @@
 import { style } from '@vanilla-extract/css';
 import { css } from '../core';
 import type { Style } from '../core';
-import mediaQueryStyle from './media-query.css';
+import mediaQueryCss from './media-query.css';
 
-const constant = css.instantiate(
+const _constant = css.instantiate(
   class {
     readonly pagePaddingTop = 120;
     readonly pagePaddingBottom = 128;
@@ -25,7 +25,7 @@ const constant = css.instantiate(
   },
 );
 
-const source = css.instantiate(
+const _class = css.instantiate(
   class {
     page = style({
       boxSizing: 'border-box',
@@ -34,11 +34,11 @@ const source = css.instantiate(
 
     pagePaddingY = style({
       boxSizing: 'border-box',
-      paddingTop: constant.pagePaddingTop,
-      paddingBottom: constant.pagePaddingBottom,
+      paddingTop: _constant.pagePaddingTop,
+      paddingBottom: _constant.pagePaddingBottom,
 
       '@media': {
-        [mediaQueryStyle.selector.pc]: {
+        [mediaQueryCss.selector.pc]: {
           paddingTop: 160,
           paddingBottom: 240,
         },
@@ -47,39 +47,39 @@ const source = css.instantiate(
 
     outerPaddingX = style({
       boxSizing: 'border-box',
-      paddingRight: constant.outerPaddingMpX,
-      paddingLeft: constant.outerPaddingMpX,
+      paddingRight: _constant.outerPaddingMpX,
+      paddingLeft: _constant.outerPaddingMpX,
 
       '@media': {
-        [mediaQueryStyle.selector.pc]: {
-          paddingRight: constant.outerPaddingPcRight,
-          paddingLeft: constant.outerPaddingPcLeft,
+        [mediaQueryCss.selector.pc]: {
+          paddingRight: _constant.outerPaddingPcRight,
+          paddingLeft: _constant.outerPaddingPcLeft,
         },
       },
     });
 
     innerPaddingX = style({
       boxSizing: 'border-box',
-      paddingRight: constant.innerPaddingMpX,
-      paddingLeft: constant.innerPaddingMpX,
+      paddingRight: _constant.innerPaddingMpX,
+      paddingLeft: _constant.innerPaddingMpX,
 
       '@media': {
-        [mediaQueryStyle.selector.pc]: {
-          paddingRight: constant.innerPaddingPcX,
-          paddingLeft: constant.innerPaddingPcX,
+        [mediaQueryCss.selector.pc]: {
+          paddingRight: _constant.innerPaddingPcX,
+          paddingLeft: _constant.innerPaddingPcX,
         },
       },
     });
 
     sectionPaddingX = style({
       boxSizing: 'border-box',
-      paddingRight: constant.sectionPaddingMpX,
-      paddingLeft: constant.sectionPaddingMpX,
+      paddingRight: _constant.sectionPaddingMpX,
+      paddingLeft: _constant.sectionPaddingMpX,
 
       '@media': {
-        [mediaQueryStyle.selector.pc]: {
-          paddingRight: constant.sectionPaddingPcRight,
-          paddingLeft: constant.sectionPaddingPcLeft,
+        [mediaQueryCss.selector.pc]: {
+          paddingRight: _constant.sectionPaddingPcRight,
+          paddingLeft: _constant.sectionPaddingPcLeft,
         },
       },
     });
@@ -87,6 +87,6 @@ const source = css.instantiate(
 );
 
 export default (<const>{
-  class: source,
-  constant,
+  class: _class,
+  constant: _constant,
 }) satisfies Style;

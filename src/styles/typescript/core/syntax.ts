@@ -13,7 +13,7 @@ export const styled = <const>{
 export const css = <const>{
   /** 引数に渡ってきた Class をもとにプレーンオブジェクトを生成する */
   instantiate<T extends Record<string | number | symbol, any>>(
-    Model: new (...args: any[]) => T,
+    Model: new () => T,
   ) {
     return { ...new Model() } as { readonly [K in keyof T]: T[K] };
   },

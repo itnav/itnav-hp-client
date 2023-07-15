@@ -12,7 +12,7 @@ export default css.instantiate(
         height: '100%',
         minHeight: ['100vh', '100svh'],
         opacity: 1,
-        transition: `opacity ${styles.transitionDuration.constant.medium1} ${styles.transitionEasing.constant.standardAccelerate}`,
+        transition: `opacity ${styles.animations.easing.constant.standardAccelerate} ${styles.animations.duration.constant.medium1}`,
 
         selectors: {
           [styles.swup.selector.animating]: {

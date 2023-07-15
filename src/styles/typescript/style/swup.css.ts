@@ -1,7 +1,7 @@
 import { css } from '../core';
 import type { Style } from '../core';
 
-const selector = css.instantiate(
+const _selector = css.instantiate(
   class {
     readonly changing = '.is-changing &';
     readonly animating = '.is-animating &';
@@ -12,5 +12,5 @@ const selector = css.instantiate(
 );
 
 export default (<const>{
-  selector,
+  selector: _selector,
 }) satisfies Style;

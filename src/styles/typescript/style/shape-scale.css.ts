@@ -2,7 +2,7 @@ import { css } from '../core';
 import type { Style } from '../core';
 
 /** @see https://m3.material.io/styles/shape/shape-scale-tokens */
-const constant = css.instantiate(
+const _constant = css.instantiate(
   class {
     readonly cornerNone = '0';
     readonly cornerExtraSmall = '4px';
@@ -19,5 +19,5 @@ const constant = css.instantiate(
 );
 
 export default (<const>{
-  constant,
+  constant: _constant,
 }) satisfies Style;

@@ -1,15 +1,19 @@
 import type { StyleRule } from '@vanilla-extract/css';
 
-export type StyleClass = string;
-export type StyleConstant = string | number | boolean;
-export type StyleFunction = (...params: any[]) => StyleConstant;
-export type StyleMixin = (...params: any[]) => StyleRule;
-export type StyleSelector = string;
+export type StyleValue<V> = Record<string | number | symbol, V>;
+
+export type StyleClass = StyleValue<string>;
+export type StyleConstant = StyleValue<string | number | boolean>;
+export type StyleFunction = StyleValue<(...params: any[]) => StyleConstant>;
+export type StyleKeyframe = StyleValue<string>;
+export type StyleMixin = StyleValue<(...params: any[]) => StyleRule>;
+export type StyleSelector = StyleValue<string>;
 
 export interface Style {
-  class?: Record<string, StyleClass>;
-  constant?: Record<string, StyleConstant>;
-  function?: Record<string, StyleFunction>;
-  mixin?: Record<string, StyleMixin>;
-  selector?: Record<string, StyleSelector>;
+  class?: StyleClass;
+  constant?: StyleConstant;
+  function?: StyleFunction;
+  keyframe?: StyleKeyframe;
+  mixin?: StyleMixin;
+  selector?: StyleSelector;
 }
