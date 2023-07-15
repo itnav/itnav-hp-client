@@ -2,7 +2,7 @@ import { css } from '../core';
 import type { Style } from '../core';
 
 /** @see https://m3.material.io/foundations/interaction-states */
-const constant = css.instantiate(
+const _constant = css.instantiate(
   class {
     readonly hover = '8%';
     readonly focus = '12%';
@@ -12,5 +12,5 @@ const constant = css.instantiate(
 );
 
 export default (<const>{
-  constant,
+  constant: _constant,
 }) satisfies Style;
