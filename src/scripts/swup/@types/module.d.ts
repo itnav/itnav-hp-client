@@ -1,14 +1,15 @@
 import type * as SwupCore from 'swup';
-import type { PageLoadOptions } from 'swup/dist/types/modules/loadPage';
+import type { HistoryAction } from 'swup/dist/types/modules/navigate';
 
 declare module 'swup' {
-  interface GotoOption extends Omit<PageLoadOptions, 'url'> {
-    shouldReloadOnEqualUrl?: boolean;
-  }
-
   export default class Swup {
     core: typeof SwupCore;
-    goto: (url: string, options?: GotoOption) => void;
+
+    navigateHistoryRecord: (
+      url: string,
+      action?: HistoryAction,
+      customData?: Record<string, unknown>,
+    ) => void;
   }
 }
 
