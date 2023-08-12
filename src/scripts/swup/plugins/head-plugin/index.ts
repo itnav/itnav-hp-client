@@ -1,4 +1,5 @@
 import Plugin from '@swup/plugin';
+import type { Handler } from 'swup';
 import mergeHeadContents from './merge-head-contents';
 import updateLangAttribute from './update-lang-attribute';
 
@@ -13,23 +14,14 @@ export default class HeadPlugin extends Plugin {
   }
 
   mount() {
-    this.swup.on('willReplaceContent', this.updateHead);
+    this.before('content:replace', this.updateHead);
   }
 
-  unmount() {
-    this.swup.off('willReplaceContent', this.updateHead);
-  }
-
-  updateHead = () => {
+  updateHead: Handler<'content:replace'> = (_, context) => {
     const swup = this.swup;
 
-    // parse の時間を短縮するために body タグの中身を削除
-    const newPageHtml = swup.cache
-      .getCurrentPage()
-      .originalContent.replace(this._bodyTagRegex, '');
-
     const newDocument = new DOMParser().parseFromString(
-      newPageHtml,
+      context.page.html.replace(this._bodyTagRegex, ''),
       'text/html',
     );
 

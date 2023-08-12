@@ -1,6 +1,6 @@
 import { splitProps } from 'solid-js';
 import type { JSX, ParentProps } from 'solid-js';
-import type { HistoryAction } from 'swup/dist/types/modules/loadPage';
+import type { HistoryAction } from 'swup/dist/types/modules/navigate';
 import type { StaticRoute } from '@/routes';
 
 export interface AnchorProps

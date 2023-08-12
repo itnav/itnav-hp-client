@@ -9,21 +9,21 @@ export function historyBack(escapePath?: string) {
 
   // 履歴が存在しなかったら引数に渡されたページへ遷移
   if (escapePath) {
-    swup.goto(escapePath);
+    swup.navigate(escapePath);
     return;
   }
 
   const { pathname, hash, search } = location;
   if (hash) {
-    swup.goto(pathname + search);
+    swup.navigate(pathname + search);
     return;
   }
 
   if (search) {
-    swup.goto(pathname);
+    swup.navigate(pathname);
     return;
   }
 
   // 引数に渡されたページが存在しなかったらトップページへ遷移
-  swup.goto(routes.top.href);
+  swup.navigate(routes.top.href);
 }

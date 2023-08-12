@@ -24,6 +24,12 @@ const swup = new Swup({
   ],
 });
 
+swup.navigateHistoryRecord = function (url, historyAction, customData) {
+  historyAction === 'replace'
+    ? this.core.updateHistoryRecord(url, customData)
+    : this.core.createHistoryRecord(url, customData);
+};
+
 Swup.prototype.core = SwupCore;
 
 window.swup = swup;

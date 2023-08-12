@@ -9,14 +9,10 @@ export default class ScriptsPlugin extends Plugin {
   }
 
   mount() {
-    this.swup.on('contentReplaced', this.runScripts);
+    this.on('content:replace', this.runScripts);
   }
 
-  unmount() {
-    this.swup.off('contentReplaced', this.runScripts);
-  }
-
-  runScripts = () => {
+  runScripts() {
     const runScript = this.runScript;
 
     const scripts = document.body.querySelectorAll('script');
@@ -27,9 +23,9 @@ export default class ScriptsPlugin extends Plugin {
     }
 
     this.swup.log(`Executed ${scripts.length} scripts.`);
-  };
+  }
 
-  runScript = (originalElement: Element) => {
+  runScript(originalElement: Element) {
     const element = document.createElement('script');
     const setAttr = element.setAttribute.bind(element);
 
@@ -45,5 +41,5 @@ export default class ScriptsPlugin extends Plugin {
     setAttr('async', 'false');
 
     originalElement.replaceWith(element);
-  };
+  }
 }
