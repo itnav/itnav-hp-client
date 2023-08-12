@@ -40,11 +40,11 @@ export default (() => {
        * @deps https://github.com/astro-community/astro-critters/blob/main/package.json
        */
       critters({
-        critters: {
+        Critters: {
           pruneSource: true,
           inlineFonts: false,
         },
-        logger: 2,
+        Logger: 2,
       }),
 
       /**
@@ -53,20 +53,20 @@ export default (() => {
        * @deps https://github.com/astro-community/astro-compress/blob/main/package.json
        */
       compress({
-        html: {
+        HTML: {
           removeAttributeQuotes: false,
         },
-        css: true,
-        js: {
+        CSS: true,
+        JavaScript: {
           compress: {
             passes: 2,
           },
         },
-        img: false,
-        svg: {
+        Image: false,
+        SVG: {
           multipass: true,
         },
-        logger: 1,
+        Logger: 1,
       }),
     ],
 
