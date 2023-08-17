@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       /**
        * @npm https://www.npmjs.com/package/@vanilla-extract/vite-plugin
-       * @docs https://vanilla-extract.style/
+       * @docs https://vanilla-extract.style
        */
       vanillaExtract(),
     ],
