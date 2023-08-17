@@ -17,14 +17,6 @@ module.exports = {
     warnOnUnsupportedTypeScriptVersion: false,
   },
 
-  plugins: [
-    /** @npm https://www.npmjs.com/package/eslint-plugin-import */
-    'import',
-
-    /** @npm https://www.npmjs.com/package/eslint-plugin-sort-keys-custom-order */
-    'sort-keys-custom-order',
-  ],
-
   extends: [
     /** @config https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended.ts */
     'eslint:recommended',
@@ -37,6 +29,14 @@ module.exports = {
      * @config https://github.com/prettier/eslint-config-prettier/blob/main/index.js
      */
     'prettier',
+  ],
+
+  plugins: [
+    /** @npm https://www.npmjs.com/package/eslint-plugin-import */
+    'import',
+
+    /** @npm https://www.npmjs.com/package/eslint-plugin-sort-keys-custom-order */
+    'sort-keys-custom-order',
   ],
 
   rules: {
@@ -128,14 +128,14 @@ module.exports = {
     {
       files: ['**/*.{ts,cts,mts,tsx,astro}'],
 
-      plugins: [
-        /** @npm https://www.npmjs.com/package/@typescript-eslint/eslint-plugin */
-        '@typescript-eslint',
-      ],
-
       extends: [
         /** @config https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended.ts */
         'plugin:@typescript-eslint/recommended',
+      ],
+
+      plugins: [
+        /** @npm https://www.npmjs.com/package/@typescript-eslint/eslint-plugin */
+        '@typescript-eslint',
       ],
 
       settings: {
@@ -178,11 +178,6 @@ module.exports = {
     {
       files: ['**/*.{jsx,tsx}'],
 
-      plugins: [
-        /** @npm https://www.npmjs.com/package/eslint-plugin-react */
-        'react',
-      ],
-
       extends: [
         /**
          * @npm https://www.npmjs.com/package/eslint-plugin-solid
@@ -195,6 +190,11 @@ module.exports = {
          * @config https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js
          */
         'plugin:jsx-a11y/strict',
+      ],
+
+      plugins: [
+        /** @npm https://www.npmjs.com/package/eslint-plugin-react */
+        'react',
       ],
 
       rules: {
@@ -238,8 +238,9 @@ module.exports = {
 
     {
       files: ['**/*.css.{ts,cts,mts}'],
+
       rules: {
-        /** @see https://github.com/hugoattal/eslint-plugin-sort-keys-custom-order */
+        /** @docs https://github.com/hugoattal/eslint-plugin-sort-keys-custom-order */
         'sort-keys-custom-order/object-keys': [
           'warn',
           {
