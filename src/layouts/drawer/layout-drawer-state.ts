@@ -1,3 +1,4 @@
 import { createSignal } from 'solid-js';
 
-export const layoutDrawerSignal = createSignal(false);
+export const [getIsOpenLayoutDrawer, setIsOpenLayoutDrawer] =
+  createSignal(false);

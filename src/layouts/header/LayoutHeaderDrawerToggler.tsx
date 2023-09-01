@@ -1,16 +1,14 @@
 import type { FlowProps } from 'solid-js';
-import { toggleFragmentUrl } from '@/utils';
-import { layoutDrawerSignal } from '../drawer/layout-drawer-state';
+import { toggleUrlFragment } from '@/utils/navigation';
+import { getIsOpenLayoutDrawer } from '../drawer/layout-drawer-state';
 
 type Props = FlowProps<{
   class: string;
   classWhenOpen: string;
 }>;
 export default function LayoutHeaderDrawerToggler(props: Props) {
-  const [getIsOpenLayoutDrawer] = layoutDrawerSignal;
-
   const toggleDrawer = () => {
-    toggleFragmentUrl('drawer');
+    toggleUrlFragment('drawer');
   };
 
   return (
