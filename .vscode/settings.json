@@ -11,6 +11,10 @@
     "source.fixAll.stylelint": true
   },
 
+  "files.associations": {
+    ".env.d.ts": "typescript"
+  },
+
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
   "prettier.documentSelectors": ["**/*.svg", "**/*.astro"],
