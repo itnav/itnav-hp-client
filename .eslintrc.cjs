@@ -217,7 +217,7 @@ module.exports = {
     },
 
     {
-      files: ['**/*.astro'],
+      files: ['**/*.astro', '**/*.astro/*.js'],
 
       extends: [
         /**
