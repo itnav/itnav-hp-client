@@ -32,7 +32,7 @@ export default css.instantiate(
           },
 
           '&:hover:after': {
-            ...styles.animations.waveAcross,
+            ...styles.animations.waveAcross.mixin.leftToRight(),
             animationDuration: styles.animations.duration.constant.long5,
           },
         },
