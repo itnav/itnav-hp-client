@@ -1,8 +1,8 @@
-import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
 import solidJs from '@astrojs/solid-js';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
+import compressor from 'astro-compressor';
 import critters from 'astro-critters';
 import purgecss from 'astro-purgecss';
 
@@ -15,12 +15,6 @@ export default (() => {
        * @docs https://docs.astro.build/ja/guides/integrations-guide/solid-js
        */
       solidJs(),
-
-      /**
-       * @npm https://www.npmjs.com/package/@astrojs/image
-       * @docs https://docs.astro.build/ja/guides/integrations-guide/image
-       */
-      image({ serviceEntryPoint: '@astrojs/image/sharp' }),
 
       /**
        * @npm https://www.npmjs.com/package/@astrojs/sitemap
@@ -68,12 +62,16 @@ export default (() => {
         },
         Logger: 1,
       }),
+
+      /**
+       * @npm https://www.npmjs.com/package/astro-compressor
+       * @docs https://github.com/sondr3/astro-compressor#readme
+       */
+      compressor({ gzip: false }),
     ],
 
     site: $env.URL,
 
     output: 'static',
-
-    compressHTML: true,
   });
 })();
