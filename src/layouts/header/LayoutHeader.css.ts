@@ -2,11 +2,6 @@ import styles, { css, keyframes, style } from '@/styles';
 
 export default css.instantiate(
   class {
-    title = style({
-      fontSize: '12px',
-      fontWeight: 'bold',
-    });
-
     header = style({
       position: 'fixed',
       top: 0,
@@ -25,6 +20,8 @@ export default css.instantiate(
       },
     });
 
+    readonly VIEW_HEIGHT_MP = '80px';
+    readonly VIEW_HEIGHT_PC = '88px';
     view = style([
       styles.layout.class.outerPaddingX,
       {
@@ -35,12 +32,12 @@ export default css.instantiate(
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        height: '80px',
+        height: this.VIEW_HEIGHT_MP,
         paddingRight: '8px',
 
         '@media': {
           [styles.mediaQuery.selector.pc]: {
-            height: '88px',
+            height: this.VIEW_HEIGHT_PC,
             paddingRight: 0,
           },
         },
