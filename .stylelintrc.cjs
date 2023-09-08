@@ -2,11 +2,6 @@
 module.exports = {
   defaultSeverity: 'warning',
 
-  plugins: [
-    /** @npm https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties */
-    'stylelint-declaration-block-no-ignored-properties',
-  ],
-
   extends: [
     /**
      * @npm https://www.npmjs.com/package/stylelint-config-recommended-scss
@@ -25,6 +20,11 @@ module.exports = {
      * @config https://github.com/ota-meshi/stylelint-config-html/blob/main/index.js
      */
     'stylelint-config-html',
+  ],
+
+  plugins: [
+    /** @npm https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties */
+    'stylelint-declaration-block-no-ignored-properties',
   ],
 
   rules: {
