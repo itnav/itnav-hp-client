@@ -4,6 +4,10 @@ import { defineConfig, loadEnv } from 'vite';
 
 /** @see https://ja.vitejs.dev/config */
 export default defineConfig(({ mode }) => {
+  function getAbsolutePath(path: string) {
+    return fileURLToPath(new URL(path, import.meta.url));
+  }
+
   return {
     plugins: [
       /**
@@ -18,7 +22,7 @@ export default defineConfig(({ mode }) => {
     },
 
     define: {
-      $env: loadEnv(mode, fileURLToPath(new URL('.', import.meta.url)), ''),
+      $env: loadEnv(mode, getAbsolutePath('.'), ''),
     },
   };
 });

@@ -15,8 +15,6 @@
     ".env.d.ts": "typescript"
   },
 
-  "prettier.tabWidth": 2,
-  "prettier.useTabs": false,
   "prettier.documentSelectors": ["**/*.svg", "**/*.astro"],
 
   "eslint.validate": [
@@ -28,6 +26,11 @@
   ],
 
   "stylelint.validate": ["css", "scss", "sass", "svg", "astro"],
+
+  "material-icon-theme.folders.associations": {
+    "_": "base",
+    "states": "ci"
+  },
 
   "cSpell.userWords": [],
   "cSpell.words": [

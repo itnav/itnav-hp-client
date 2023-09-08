@@ -8,15 +8,6 @@ require('@vanilla-extract/css');
 module.exports = {
   root: true,
 
-  globals: {
-    $env: 'readonly',
-  },
-
-  parserOptions: {
-    ecmaVersion: 'latest',
-    warnOnUnsupportedTypeScriptVersion: false,
-  },
-
   extends: [
     /** @config https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended.ts */
     'eslint:recommended',
@@ -38,6 +29,15 @@ module.exports = {
     /** @npm https://www.npmjs.com/package/eslint-plugin-sort-keys-custom-order */
     'sort-keys-custom-order',
   ],
+
+  globals: {
+    $env: 'readonly',
+  },
+
+  parserOptions: {
+    ecmaVersion: 'latest',
+    warnOnUnsupportedTypeScriptVersion: false,
+  },
 
   rules: {
     /** @docs https://eslint.org/docs/latest/rules */
@@ -122,6 +122,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.{cjs,cts}'],
+
       env: { node: true },
     },
 
