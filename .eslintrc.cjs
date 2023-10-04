@@ -14,12 +14,6 @@ module.exports = {
 
     /** @config https://github.com/import-js/eslint-plugin-import/blob/main/config/recommended.js */
     'plugin:import/recommended',
-
-    /**
-     * @npm https://www.npmjs.com/package/eslint-config-prettier
-     * @config https://github.com/prettier/eslint-config-prettier/blob/main/index.js
-     */
-    'prettier',
   ],
 
   plugins: [
@@ -276,6 +270,20 @@ module.exports = {
       rules: {
         /** @docs https://typescript-eslint.io/rules */
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      },
+    },
+
+    {
+      files: ['*'],
+
+      rules: {
+        extends: [
+          /**
+           * @npm https://www.npmjs.com/package/eslint-config-prettier
+           * @config https://github.com/prettier/eslint-config-prettier/blob/main/index.js
+           */
+          'prettier',
+        ],
       },
     },
   ],
