@@ -16,9 +16,9 @@ import LayoutHeaderDrawerToggler from './LayoutHeaderDrawerToggler';
 
     <div class={css.rightActions}>
       <LayoutHeaderDrawerToggler
+        client:idle
         class={css.menuIcon}
         classWhenOpen={css.menuIconWhenOpen}
-        client:idle
       >
         {[...Array(5)].map(() => <div class={css.menuIconLine} />)}
       </LayoutHeaderDrawerToggler>
